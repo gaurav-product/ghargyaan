@@ -1,0 +1,26 @@
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Environment (never commit real values)
+.env
+.env.*
+!.env.example
+
+# Local QA output (screenshots for the README live in docs/images/)
+qa/
+
+# Logs and OS / editor files
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Supabase local state
+supabase/.temp/
+supabase/.branches/

@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   GharGyaan design tokens
+   Neem-ink greens for trust, a haldi (turmeric) accent used sparingly,
+   an indigo "science" hue for evidence, and semantic evidence colours
+   that are always paired with a text label.
+------------------------------------------------------------------- */
+:root {
+  --c-ground: 244 246 242;
+  --c-surface: 255 255 255;
+  --c-sunken: 235 240 235;
+  --c-line: 216 225 217;
+  --c-ink: 20 44 38;
+  --c-muted: 83 102 95;
+  --c-primary: 26 92 76;
+  --c-on-primary: 255 255 255;
+  --c-haldi: 150 92 10;
+  --c-science: 46 74 125;
+  --c-ok: 24 110 68;
+  --c-okbg: 226 243 232;
+  --c-limited: 133 98 0;
+  --c-limitedbg: 250 242 212;
+  --c-trad: 150 64 16;
+  --c-tradbg: 252 235 222;
+  --c-danger: 176 32 30;
+  --c-dangerbg: 253 230 228;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --c-ground: 13 23 20;
+    --c-surface: 21 35 30;
+    --c-sunken: 17 29 25;
+    --c-line: 43 61 53;
+    --c-ink: 228 238 232;
+    --c-muted: 156 176 167;
+    --c-primary: 104 190 160;
+    --c-on-primary: 10 30 24;
+    --c-haldi: 228 170 76;
+    --c-science: 140 170 230;
+    --c-ok: 110 205 150;
+    --c-okbg: 22 52 38;
+    --c-limited: 232 196 90;
+    --c-limitedbg: 52 44 18;
+    --c-trad: 240 150 96;
+    --c-tradbg: 58 34 22;
+    --c-danger: 255 130 120;
+    --c-dangerbg: 64 24 24;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --c-ground: 13 23 20;
+  --c-surface: 21 35 30;
+  --c-sunken: 17 29 25;
+  --c-line: 43 61 53;
+  --c-ink: 228 238 232;
+  --c-muted: 156 176 167;
+  --c-primary: 104 190 160;
+  --c-on-primary: 10 30 24;
+  --c-haldi: 228 170 76;
+  --c-science: 140 170 230;
+  --c-ok: 110 205 150;
+  --c-okbg: 22 52 38;
+  --c-limited: 232 196 90;
+  --c-limitedbg: 52 44 18;
+  --c-trad: 240 150 96;
+  --c-tradbg: 58 34 22;
+  --c-danger: 255 130 120;
+  --c-dangerbg: 64 24 24;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ground text-ink font-sans antialiased;
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid rgb(var(--c-haldi));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  button,
+  [role='button'],
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-line rounded-card;
+  }
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.08em] text-muted;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 min-h-[48px] font-semibold text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-on-primary hover:bg-primary/90;
+  }
+  .btn-quiet {
+    @apply btn bg-surface text-ink border border-line hover:bg-sunken;
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 min-h-[44px] text-sm font-medium text-ink hover:border-primary/60 hover:bg-sunken transition-colors;
+  }
+  .prose-gg {
+    @apply text-base leading-relaxed max-w-[65ch];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes gg-rise {
+  from {
+    transform: translateY(6px);
+  }
+  to {
+    transform: none;
+  }
+}
+.gg-rise {
+  animation: gg-rise 0.35s ease-out both;
+}
+
+@keyframes gg-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.gg-skeleton {
+  @apply bg-sunken rounded-md;
+  animation: gg-pulse 1.4s ease-in-out infinite;
+}

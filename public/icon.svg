@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#f4f6f2"/>
+  <path d="M256 70 L430 190 V410 a24 24 0 0 1 -24 24 H106 a24 24 0 0 1 -24 -24 V190 Z" fill="#1a5c4c"/>
+  <path d="M256 70 L430 190" stroke="#b07012" stroke-width="26" stroke-linecap="round"/>
+  <text x="256" y="372" text-anchor="middle" font-family="'Tiro Devanagari Hindi','Noto Serif Devanagari','Noto Sans Devanagari',serif" font-size="190" fill="#ffffff">ज्ञ</text>
+</svg>
