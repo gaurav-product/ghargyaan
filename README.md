@@ -268,7 +268,7 @@ This project demonstrates end-to-end product work:
 
 ## Run it locally (no API keys needed)
 
-Requires Node.js 20+.
+Requires Node.js 20.19+ or 22.12+ (Vite 8 requirement).
 
 ```bash
 npm install
